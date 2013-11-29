@@ -6,45 +6,64 @@
 #include <pebble.h>
 #include "bitmap-loader.h"
 
-typedef struct {
+typedef struct AppBitmap AppBitmap;
+
+struct AppBitmap {
   uint32_t res_id;
   GBitmap* bitmap;
-} AppBitmap;
+  AppBitmap* next;
+};
 
-static AppBitmap* loaded_bitmaps;
-static uint8_t bitmaps_loaded = 0;
-static uint8_t bitmaps_count = 0;
+static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id);
+static AppBitmap* get_app_bitmap_tail(void);
 
-void bitmaps_init(uint8_t count) {
-  bitmaps_loaded = 0;
-  bitmaps_count = count;
-  loaded_bitmaps = malloc(sizeof(AppBitmap) * bitmaps_count);
+static AppBitmap* bitmaps = NULL;
+
+void bitmaps_init() {
+  bitmaps_cleanup();
+  bitmaps = NULL;
 }
 
 GBitmap* bitmaps_get_bitmap(uint32_t res_id) {
-  AppBitmap* app_bmp = NULL;
-  for (uint8_t b = 0; b < bitmaps_loaded; b += 1) {
-    if (loaded_bitmaps[b].res_id == res_id) {
-      app_bmp = &loaded_bitmaps[b];
-      break;
-    }
-  }
+  AppBitmap* app_bmp = get_app_bitmap_by_res_id(res_id);
   if (app_bmp == NULL) {
-    if (bitmaps_loaded >= bitmaps_count) {
-      APP_LOG(APP_LOG_LEVEL_ERROR, "Tried to load too many bitmaps!");
-      return NULL;
-    }
-    app_bmp = &loaded_bitmaps[bitmaps_loaded];
-    bitmaps_loaded += 1;
+    app_bmp = malloc(sizeof(AppBitmap));
     app_bmp->res_id = res_id;
     app_bmp->bitmap = gbitmap_create_with_resource(app_bmp->res_id);
+    app_bmp->next = NULL;
+    AppBitmap* last = get_app_bitmap_tail();
+    last->next = app_bmp;
   }
   return app_bmp->bitmap;
 }
 
 void bitmaps_cleanup(void) {
-  for (uint8_t b = 0; b < bitmaps_loaded; b += 1) {
-    gbitmap_destroy(loaded_bitmaps[b].bitmap);
+  AppBitmap* current = bitmaps;
+  while (current != NULL) {
+    free(gbitmap_destroy(current->bitmap));
+    AppBitmap* tmp = current;
+    current = tmp->next;
+    free(current);
   }
-  free(loaded_bitmaps);
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - -  -- 
+
+AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
+  AppBitmap* current = bitmaps;
+  while (current != NULL) {
+    if (current->res_id == res_id) {
+      return current;
+    }
+    current = current->next;
+  }
+  return NULL;
+}
+
+AppBitmap* get_app_bitmap_tail(void) {
+  AppBitmap* current = bitmaps;
+  while (current != NULL) {
+    current = current->next;
+  }
+  return current;
 }

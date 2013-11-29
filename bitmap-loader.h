@@ -7,6 +7,6 @@
 
 #include <pebble.h>
 
-void bitmaps_init(uint8_t count);
+void bitmaps_init(void);
 GBitmap* bitmaps_get_bitmap(uint32_t res_id);
 void bitmaps_cleanup(void);
