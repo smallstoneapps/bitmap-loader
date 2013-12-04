@@ -42,7 +42,7 @@ GBitmap* bitmaps_get_bitmap(uint32_t res_id) {
 void bitmaps_cleanup(void) {
   AppBitmap* current = bitmaps;
   while (current != NULL) {
-    free(gbitmap_destroy(current->bitmap));
+    gbitmap_destroy(current->bitmap);
     AppBitmap* tmp = current;
     current = tmp->next;
     free(current);
