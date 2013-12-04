@@ -2,7 +2,7 @@
  * Bitmap Loader
  * Copyright © 2013 Matthew Tole
  *
- * Version 2.0.1
+ * Version 2.0.2
  ***/
 
 #include <pebble.h>
@@ -34,7 +34,12 @@ GBitmap* bitmaps_get_bitmap(uint32_t res_id) {
     app_bmp->bitmap = gbitmap_create_with_resource(app_bmp->res_id);
     app_bmp->next = NULL;
     AppBitmap* last = get_app_bitmap_tail();
-    last->next = app_bmp;
+    if (last == NULL) {
+      bitmaps = app_bmp;
+    }
+    else {
+      last->next = app_bmp;
+    }
   }
   return app_bmp->bitmap;
 }
@@ -49,7 +54,7 @@ void bitmaps_cleanup(void) {
   }
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - -  -- 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
   AppBitmap* current = bitmaps;
@@ -65,7 +70,10 @@ AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
 AppBitmap* get_app_bitmap_tail(void) {
   AppBitmap* current = bitmaps;
   while (current != NULL) {
+    if (current->next == NULL) {
+      return current;
+    }
     current = current->next;
   }
-  return current;
+  return NULL;
 }
