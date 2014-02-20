@@ -5,7 +5,7 @@ Pebble library to do lazy loading of bitmaps from resources
 ## Usage
 
 ````c
-//  This is not a complete example,
+// This is not a complete example,
 // but should demonstrate the basic usage of Bitmap Loader.
 
 static void init(void) {

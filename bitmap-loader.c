@@ -1,6 +1,6 @@
 /***
  * Bitmap Loader
- * Copyright © 2013 Matthew Tole
+ * Copyright © 2013-2014 Matthew Tole
  *
  * Version 2.0.2
  ***/
@@ -52,6 +52,7 @@ void bitmaps_cleanup(void) {
     current = tmp->next;
     free(current);
   }
+  bitmaps = NULL:
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
