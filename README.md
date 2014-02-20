@@ -5,7 +5,8 @@ Pebble library to do lazy loading of bitmaps from resources
 ## Usage
 
 ````c
-//  This is not a complete example, but should demonstrate the basic usage of Bitmap Loader.
+//  This is not a complete example,
+// but should demonstrate the basic usage of Bitmap Loader.
 
 static void init(void) {
   bitmaps_init();
@@ -24,6 +25,7 @@ static void window_load(Window* window) {
 ## Function Documentation
 
 Initialise the Bitmap Loader
+
 **Note:** Call this once, preferably in your *init* function.
 
     void bitmaps_init(void);
@@ -32,7 +34,8 @@ Get the bitmap using its resource ID.
 
     GBitmap* bitmaps_get_bitmap(uint32_t res_id);
 
-Cleanup the Bitmap Loader. 
+Cleanup the Bitmap Loader.
+
 **Note** Call this in your *deinit* function.
 
     void bitmaps_cleanup(void);
