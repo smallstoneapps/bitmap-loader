@@ -52,7 +52,7 @@ void bitmaps_cleanup(void) {
     current = tmp->next;
     free(current);
   }
-  bitmaps = NULL:
+  bitmaps = NULL;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
