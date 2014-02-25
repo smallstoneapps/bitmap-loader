@@ -11,8 +11,7 @@ The function `bitmaps_get_bitmap` takes a *RESOURCE_ID* as an argument, and retu
 ## Usage
 
 ````c
-// This is not a complete example,
-// but should demonstrate the basic usage of Bitmap Loader.
+// This is not a complete example, but should demonstrate the basic usage of Bitmap Loader.
 
 static void init(void) {
   bitmaps_init();
