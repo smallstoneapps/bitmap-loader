@@ -1,8 +1,8 @@
 /***
- * Bitmap Loader
- * Copyright © 2013-2014 Matthew Tole
+ * Bitmap Loader v2.0.3
+ * On-demand loading of bitmaps from resources.
  *
- * Version 2.0.2
+ * bitmap-loader.c
  ***/
 
 #pragma once
