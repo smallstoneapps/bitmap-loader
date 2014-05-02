@@ -2,11 +2,16 @@
 
 Pebble library to do lazy loading of bitmaps from resources
 
+## What does it do?
+
+Bitmap Loader will automatically load bitmaps when they are needed, rather than having to handle the loading of them yourself. 
+
+The function `bitmaps_get_bitmap` takes a *RESOURCE_ID* as an argument, and returns a pointer to a *GBitmap*. If this is the first time that the bitmap has been requested, it will load the image from resources. 
+
 ## Usage
 
 ````c
-// This is not a complete example,
-// but should demonstrate the basic usage of Bitmap Loader.
+// This is not a complete example, but should demonstrate the basic usage of Bitmap Loader.
 
 static void init(void) {
   bitmaps_init();

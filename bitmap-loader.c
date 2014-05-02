@@ -76,7 +76,7 @@ void bitmaps_cleanup(void) {
     current = current->next;
     free(tmp);
   }
-  bitmaps = NULL:
+  bitmaps = NULL;
 }
 
 AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
