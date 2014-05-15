@@ -1,14 +1,14 @@
-/***
- * Bitmap Loader v2.0.3
- * On-demand loading of bitmaps from resources.
- *
- * bitmap-loader.c
- ***/
+/*
 
-/**
+Bitmap Loader v2.0.3
+On-demand loading of bitmaps from resources.
+http://smallstoneapps.github.io/bitmap-loader/
+
+----------------------
+
 The MIT License (MIT)
 
-Copyright © 2013 - 21024 Matthew Tole
+Copyright © 2014 Matthew Tole
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-**/
+
+----------------------
+
+bitmap-loader.c
+
+*/
 
 #include <pebble.h>
 #include "bitmap-loader.h"
@@ -79,7 +84,7 @@ void bitmaps_cleanup(void) {
   bitmaps = NULL;
 }
 
-AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
+static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
   AppBitmap* current = bitmaps;
   while (current != NULL) {
     if (current->res_id == res_id) {
@@ -90,7 +95,7 @@ AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
   return NULL;
 }
 
-AppBitmap* get_app_bitmap_tail(void) {
+static AppBitmap* get_app_bitmap_tail(void) {
   AppBitmap* current = bitmaps;
   while (current != NULL) {
     if (current->next == NULL) {
