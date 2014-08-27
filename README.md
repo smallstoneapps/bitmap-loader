@@ -1,4 +1,4 @@
-# Bitmap Loader v2.1
+# Bitmap Loader v2.1 [![Build Status](https://travis-ci.org/smallstoneapps/bitmap-loader.png?branch=master)](https://travis-ci.org/smallstoneapps/bitmap-loader)
 
 Pebble library to do lazy loading of bitmaps from resources
 
