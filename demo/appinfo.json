@@ -1,0 +1,15 @@
+{
+  "uuid": "1cf3657d-e6af-4005-a7c2-4e5a54c75f94",
+  "shortName": "Bitmap Loader Demo",
+  "longName": "Bitmap Loader Demo",
+  "companyName": "Matthew Tole",
+  "versionCode": 1,
+  "versionLabel": "2.1",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": { },
+  "resources": {
+    "media": []
+  }
+}

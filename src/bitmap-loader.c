@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.0.3
+Bitmap Loader v2.1
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 ----------------------
 
-bitmap-loader.c
+src/bitmap-loader.c
 
 */
 
@@ -42,10 +42,12 @@ typedef struct AppBitmap AppBitmap;
 struct AppBitmap {
   uint32_t res_id;
   GBitmap* bitmap;
+  uint8_t group;
   AppBitmap* next;
 };
 
 static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id);
+static AppBitmap* get_app_bitmap_by_group(uint8_t group);
 static AppBitmap* get_app_bitmap_tail(void);
 
 static AppBitmap* bitmaps = NULL;
@@ -61,6 +63,7 @@ GBitmap* bitmaps_get_bitmap(uint32_t res_id) {
     app_bmp = malloc(sizeof(AppBitmap));
     app_bmp->res_id = res_id;
     app_bmp->bitmap = gbitmap_create_with_resource(app_bmp->res_id);
+    app_bmp->group = 0;
     app_bmp->next = NULL;
     AppBitmap* last = get_app_bitmap_tail();
     if (last == NULL) {
@@ -68,6 +71,35 @@ GBitmap* bitmaps_get_bitmap(uint32_t res_id) {
     }
     else {
       last->next = app_bmp;
+    }
+  }
+  return app_bmp->bitmap;
+}
+
+GBitmap* bitmaps_get_bitmap_in_group(uint32_t res_id, uint8_t group) {
+  if (group <= 0) {
+    return NULL;
+  }
+  AppBitmap* app_bmp = get_app_bitmap_by_group(group);
+  if (NULL == app_bmp) {
+    app_bmp = malloc(sizeof(AppBitmap));
+    app_bmp->res_id = res_id;
+    app_bmp->bitmap = gbitmap_create_with_resource(app_bmp->res_id);
+    app_bmp->group = group;
+    app_bmp->next = NULL;
+    AppBitmap* last = get_app_bitmap_tail();
+    if (last == NULL) {
+      bitmaps = app_bmp;
+    }
+    else {
+      last->next = app_bmp;
+    }
+  }
+  else {
+    if (res_id != app_bmp->res_id) {
+      gbitmap_destroy(app_bmp->bitmap);
+      app_bmp->res_id = res_id;
+      app_bmp->bitmap = gbitmap_create_with_resource(app_bmp->res_id);
     }
   }
   return app_bmp->bitmap;
@@ -84,10 +116,23 @@ void bitmaps_cleanup(void) {
   bitmaps = NULL;
 }
 
+// - - -
+
 static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
   AppBitmap* current = bitmaps;
   while (current != NULL) {
     if (current->res_id == res_id) {
+      return current;
+    }
+    current = current->next;
+  }
+  return NULL;
+}
+
+static AppBitmap* get_app_bitmap_by_group(uint8_t group) {
+  AppBitmap* current = bitmaps;
+  while (current != NULL) {
+    if (current->group == group) {
       return current;
     }
     current = current->next;

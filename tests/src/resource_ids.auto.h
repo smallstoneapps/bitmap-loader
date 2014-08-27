@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.0.3
+Bitmap Loader v2.1
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -30,20 +30,6 @@ THE SOFTWARE.
 
 --------------------
 
-bitmap-loader.h
+tests/src/resource_ids.auto.h
 
 */
-
-#pragma once
-
-#include <pebble.h>
-
-// Initialise the bitmap loading library.
-void bitmaps_init(void);
-
-// Returns a pointer to the bitmap as specified by a resource ID.
-// If the bitmap has not been requested before, it will be loaded.
-GBitmap* bitmaps_get_bitmap(uint32_t res_id);
-
-// Unload all the bitmaps from memory.
-void bitmaps_cleanup(void);
