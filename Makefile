@@ -30,7 +30,7 @@
 # Makefile
 
 PEBBLE_HEADERS=tests/include
-LIB_HEADERS=../linked-list/src
+LIB_HEADERS=src/libs/linked-list/src
 
 CC=gcc
 ifeq ($(TRAVIS), true)
@@ -43,7 +43,7 @@ CINCLUDES=-I $(PEBBLE_HEADERS) -I tests/ -I $(LIB_HEADERS)
 TEST_FILES=tests/bitmap-loader.c
 SRC_FILES=src/bitmap-loader.c
 TEST_EXTRAS=tests/src/pebble.c
-LIB_FILES=../linked-list/src/linked-list.c
+LIB_FILES=src/libs/linked-list/src/linked-list.c
 
 all: test
 
