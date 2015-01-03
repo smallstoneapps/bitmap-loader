@@ -37,14 +37,35 @@ Initialise the Bitmap Loader
 
 **Note:** Call this once, preferably in your *init* function.
 
-    void bitmaps_init(void);
+```c
+void bitmaps_init(void);
+```
 
 Get the bitmap using its resource ID.
 
-    GBitmap* bitmaps_get_bitmap(uint32_t res_id);
+```c
+GBitmap* bitmaps_get_bitmap(uint32_t res_id);
+```
+
+Get a bitmap from a group. You can use this to make sure you only keep one
+bitmap for a single location in memory. If there is already a bitmap loaded
+for the given group, it will replace it with the one you are requesting.
+
+```c
+GBitmap* bitmaps_get_bitmap_in_group(uint32_t res_id, uint8_t group);
+```
+
+Get a sub bitmap from a larger bitmap given its resource ID and a rectangle.
+If the parent bitmap has already been loaded it will not be loaded again.
+
+```c
+GBitmap* bitmaps_get_sub_bitmap(uint32_t res_id, GRect rect);
+```
 
 Cleanup the Bitmap Loader.
 
 **Note** Call this in your *deinit* function.
 
-    void bitmaps_cleanup(void);
+```c
+void bitmaps_cleanup(void);
+```
