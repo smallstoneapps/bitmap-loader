@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.1
+Bitmap Loader v2.2
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 

@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.1
+Bitmap Loader v2.2
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -50,6 +50,11 @@ GBitmap* bitmaps_get_bitmap(uint32_t res_id);
 // If another bitmap has been loaded with the same group number, it will be
 // unloaded.
 GBitmap* bitmaps_get_bitmap_in_group(uint32_t res_id, uint8_t group);
+
+// Returns a pointer to a bitmap that is a subset of a larger bitmap.
+// You provide the resource and the rectangle, and it gives you back the
+// sub-bitmap.
+GBitmap* bitmaps_get_sub_bitmap(uint32_t res_id, GRect rect);
 
 // Unload all the bitmaps from memory.
 void bitmaps_cleanup(void);

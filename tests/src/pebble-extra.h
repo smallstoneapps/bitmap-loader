@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.1
+Bitmap Loader v2.2
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -35,3 +35,5 @@ tests/src/pebble-extra.h
 */
 
 #include <pebble.h>
+
+void resources_add_bitmap(uint32_t resource_id);

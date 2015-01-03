@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.1
+Bitmap Loader v2.2
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -138,13 +138,35 @@ status_t persist_delete(uint32_t key) {
 }
 
 GBitmap* gbitmap_create_with_resource(uint32_t resource_id) {
-  return NULL;
+  GBitmap* bitmap = malloc(sizeof(GBitmap));
+  bitmap->addr = malloc(32);
+  bitmap->reserved = (uint16_t)resource_id;
+  return bitmap;
+}
+
+GBitmap* gbitmap_create_as_sub_bitmap(const GBitmap *base_bitmap, GRect sub_rect) {
+  GBitmap* bitmap = malloc(sizeof(GBitmap));
+  bitmap->addr = (void*)base_bitmap;
+  bitmap->bounds = sub_rect;
+  return bitmap;
 }
 
 void gbitmap_destroy(GBitmap* bitmap) {
-
+  free(bitmap->addr);
+  free(bitmap);
 }
+
+bool grect_equal(const GRect* const r0, const GRect* const r1) {
+  return ((r0->origin.x == r1->origin.x) &&
+          (r0->origin.y == r1->origin.y) &&
+          (r0->size.w == r1->size.w) &&
+          (r0->size.h == r1->size.h));
+}
+
 
 void app_log(uint8_t log_level, const char* src_filename, int src_line_number, const char* fmt, ...) {
 
+}
+
+void resources_add_bitmap(uint32_t resource_id) {
 }

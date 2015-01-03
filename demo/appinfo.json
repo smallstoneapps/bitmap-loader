@@ -4,12 +4,28 @@
   "longName": "Bitmap Loader Demo",
   "companyName": "Matthew Tole",
   "versionCode": 1,
-  "versionLabel": "2.1",
+  "versionLabel": "2.2",
   "watchapp": {
     "watchface": false
   },
   "appKeys": { },
   "resources": {
-    "media": []
+    "media": [
+      {
+        "type": "png",
+        "name": "BITMAP_1",
+        "file": "image1.png"
+      },
+      {
+        "type": "png",
+        "name": "BITMAP_2",
+        "file": "image2.png"
+      },
+      {
+        "type": "png",
+        "name": "BITMAP_3",
+        "file": "image3.png"
+      }
+    ]
   }
 }

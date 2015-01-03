@@ -1,4 +1,4 @@
-# Bitmap Loader v2.1
+# Bitmap Loader v2.2
 # http://smallstoneapps.github.io/bitmap-loader/
 #
 # ----------------------
@@ -30,6 +30,7 @@
 # Makefile
 
 PEBBLE_HEADERS=tests/include
+LIB_HEADERS=../linked-list/src
 
 CC=gcc
 ifeq ($(TRAVIS), true)
@@ -37,16 +38,17 @@ CFLAGS=-std=c99
 else
 CFLAGS=-std=c11
 endif
-CINCLUDES=-I $(PEBBLE_HEADERS) -I tests/
+CINCLUDES=-I $(PEBBLE_HEADERS) -I tests/ -I $(LIB_HEADERS)
 
 TEST_FILES=tests/bitmap-loader.c
 SRC_FILES=src/bitmap-loader.c
 TEST_EXTRAS=tests/src/pebble.c
+LIB_FILES=../linked-list/src/linked-list.c
 
 all: test
 
 test:
-	@$(CC) $(CFLAGS) $(CINCLUDES) $(TEST_FILES) $(SRC_FILES) $(TEST_EXTRAS) -o tests/run
+	@$(CC) $(CFLAGS) $(CINCLUDES) $(TEST_FILES) $(SRC_FILES) $(LIB_FILES) $(TEST_EXTRAS) -o tests/run
 	@tests/run || (echo 'Bitmap Loader tests failed' | terminal-notifier; exit 1)
 	@rm tests/run
 	@printf "\x1B[0m"
