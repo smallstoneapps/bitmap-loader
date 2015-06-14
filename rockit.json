@@ -1,0 +1,13 @@
+{
+  "name": "bitmap-loader",
+  "version": "2.2",
+  "includes": [ "src" ],
+  "sources": [ "src/bitmap-loader.c" ],
+  "js": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smallstoneapps/bitmap-loader.git"
+  },
+  "author": "Matthew Tole <pebble@matthewtole.com>",
+  "license": "MIT"
+}
