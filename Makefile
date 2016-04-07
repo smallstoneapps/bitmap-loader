@@ -1,5 +1,5 @@
 #
-# Bitmap Loader v2.2
+# Bitmap Loader v3.0.0
 # http://smallstoneapps.github.io/bitmap-loader/
 #
 # ----------------------

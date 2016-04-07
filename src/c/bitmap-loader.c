@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.2
+Bitmap Loader v3.0.0
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -35,7 +35,7 @@ src/bitmap-loader.c
 */
 
 #include <pebble.h>
-#include <linked-list.h>
+#include "pebble-linked-list/linked-list.h"
 #include "bitmap-loader.h"
 
 typedef struct {

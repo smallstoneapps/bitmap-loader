@@ -1,2 +1,5 @@
 tests/include/
-demo/.lock-waf*
+.lock*
+build/
+dist.zip
+node_modules/

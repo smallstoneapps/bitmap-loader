@@ -4,7 +4,7 @@
   "longName": "Bitmap Loader Demo",
   "companyName": "Matthew Tole",
   "versionCode": 1,
-  "versionLabel": "2.2",
+  "versionLabel": "3.0.0",
   "watchapp": {
     "watchface": false
   },

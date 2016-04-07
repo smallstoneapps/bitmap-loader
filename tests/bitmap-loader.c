@@ -1,6 +1,6 @@
 /*
 
-Bitmap Loader v2.2
+Bitmap Loader v3.0.0
 On-demand loading of bitmaps from resources.
 http://smallstoneapps.github.io/bitmap-loader/
 
@@ -38,7 +38,7 @@ tests/bitmap-loader.c
 #include "./src/pebble-extra.h"
 #include "../src/bitmap-loader.h"
 
-#define VERSION_LABEL "2.2"
+#define VERSION_LABEL "3.0.0"
 
 // Colour code definitions to make the output all pretty.
 #define KNRM  "\x1B[0m"

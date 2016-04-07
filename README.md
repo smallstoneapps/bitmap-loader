@@ -1,4 +1,4 @@
-# Bitmap Loader v2.2 [![Build Status](http://img.shields.io/travis/smallstoneapps/bitmap-loader.svg?style=flat-square)](https://travis-ci.org/smallstoneapps/bitmap-loader/)&nbsp;![Version 2.2](http://img.shields.io/badge/version-2.2-orange.svg?style=flat-square)&nbsp;[![MIT License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat-square)](./LICENSE)&nbsp;[![Support my development](http://img.shields.io/gittip/matthewtole.svg?style=flat-square)](https://www.gittip.com/matthewtole/)
+# Bitmap Loader v3.0.0 [![Build Status](http://img.shields.io/travis/smallstoneapps/bitmap-loader.svg?style=flat-square)](https://travis-ci.org/smallstoneapps/bitmap-loader/)&nbsp;![Version 3.0.0](http://img.shields.io/badge/version-3.0.0-orange.svg?style=flat-square)&nbsp;[![MIT License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat-square)](./LICENSE)&nbsp;[![Support my development](http://img.shields.io/gittip/matthewtole.svg?style=flat-square)](https://www.gittip.com/matthewtole/)
 
 Pebble library to do lazy loading of bitmaps from resources
 

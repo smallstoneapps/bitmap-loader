@@ -1,0 +1,38 @@
+{
+  "name": "pebble-bitmap-loader",
+  "version": "1.0.0",
+  "description": "Pebble library to do lazy loading of bitmaps from resources",
+  "main": "src/c/bitmap-loader.c",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smallstoneapps/bitmap-loader.git"
+  },
+  "author": "Matthew Tole <pebble@matthewtole.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smallstoneapps/bitmap-loader/issues"
+  },
+  "homepage": "https://github.com/smallstoneapps/bitmap-loader#readme",
+  "pebble": {
+    "uuid": "7903d3f1-8096-4a39-ae0a-a7e54a9c1bce",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk"
+    ]
+  },
+  "files": [
+    "dist.zip"
+  ],
+  "dependencies": {
+    "pebble-linked-list": "^1.0.0"
+  }
+}
