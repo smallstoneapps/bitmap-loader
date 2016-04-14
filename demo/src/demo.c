@@ -1,5 +1,5 @@
 #include <pebble.h>
-#include <bitmap-loader.h>
+#include "pebble-bitmap-loader/bitmap-loader.h"
 
 static Window *window;
 static BitmapLayer* bitmap_layer;

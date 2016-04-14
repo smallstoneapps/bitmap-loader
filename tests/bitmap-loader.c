@@ -36,7 +36,7 @@ tests/bitmap-loader.c
 
 #include "unit.h"
 #include "./src/pebble-extra.h"
-#include "../src/bitmap-loader.h"
+#include "bitmap-loader.h"
 
 #define VERSION_LABEL "3.0.0"
 

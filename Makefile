@@ -32,7 +32,7 @@
 #
 
 PEBBLE_HEADERS=tests/include
-LIB_HEADERS=src/libs/linked-list/src
+LIB_HEADERS=node_modules/pebble-linked-list/dist/include -I node_modules/pebble-linked-list/include
 
 CC=gcc
 ifeq ($(TRAVIS), true)
@@ -40,12 +40,12 @@ CFLAGS=-std=c99
 else
 CFLAGS=-std=c11
 endif
-CINCLUDES=-I $(PEBBLE_HEADERS) -I tests/ -I $(LIB_HEADERS)
+CINCLUDES=-I "$(PEBBLE_HEADERS)" -I tests/ -I $(LIB_HEADERS) -I include/
 
 TEST_FILES=tests/bitmap-loader.c
-SRC_FILES=src/bitmap-loader.c
+SRC_FILES=src/c/bitmap-loader.c
 TEST_EXTRAS=tests/src/pebble.c
-LIB_FILES=src/libs/linked-list/src/linked-list.c
+LIB_FILES=node_modules/pebble-linked-list/src/c/linked-list.c
 
 all: test
 

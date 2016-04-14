@@ -33,6 +33,6 @@
     "dist.zip"
   ],
   "dependencies": {
-    "pebble-linked-list": "^1.0.0"
+    "pebble-linked-list": "^1.0.2"
   }
 }
