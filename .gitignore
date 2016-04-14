@@ -3,3 +3,4 @@ tests/include/
 build/
 dist.zip
 node_modules/
+CMakeLists.txt

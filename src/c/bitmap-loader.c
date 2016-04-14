@@ -1,42 +1,7 @@
-/*
-
-Bitmap Loader v3.0.0
-On-demand loading of bitmaps from resources.
-http://smallstoneapps.github.io/bitmap-loader/
-
-----------------------
-
-The MIT License (MIT)
-
-Copyright © 2014-2015 Matthew Tole
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-----------------------
-
-src/bitmap-loader.c
-
-*/
-
 #include <pebble.h>
 #include "pebble-linked-list/linked-list.h"
 #include "bitmap-loader.h"
+
 
 typedef struct {
   uint32_t res_id;
@@ -46,11 +11,13 @@ typedef struct {
   bool is_sub;
 } AppBitmap;
 
+
 static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id);
 static AppBitmap* get_app_bitmap_by_group(uint8_t group);
-static AppBitmap* get_app_bitmap_tail(void);
+
 
 static LinkedRoot* bitmaps = NULL;
+
 
 void bitmaps_init() {
   bitmaps_cleanup();
@@ -152,7 +119,6 @@ void bitmaps_cleanup(void) {
   }
 }
 
-// - - -
 
 static AppBitmap* get_app_bitmap_by_res_id(uint32_t res_id) {
   uint8_t count = linked_list_count(bitmaps);
