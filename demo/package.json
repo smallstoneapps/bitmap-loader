@@ -35,6 +35,6 @@
     }
   },
   "dependencies": {
-    "pebble-bitmap-loader": "^1.0.0"
+    "@smallstoneapps/bitmap-loader": "^1.1.0"
   }
 }

@@ -1,5 +1,5 @@
 PEBBLE_HEADERS=tests/include
-LIB_HEADERS=node_modules/pebble-linked-list/dist/include -I node_modules/pebble-linked-list/include
+LIB_HEADERS=node_modules/@smallstoneapps/linked-list/dist/include -I node_modules/@smallstoneapps/linked-list/include
 
 CC=gcc
 ifeq ($(TRAVIS), true)
@@ -12,7 +12,7 @@ CINCLUDES=-I "$(PEBBLE_HEADERS)" -I tests/ -I $(LIB_HEADERS) -I include/
 TEST_FILES=tests/bitmap-loader.c
 SRC_FILES=src/c/bitmap-loader.c
 TEST_EXTRAS=tests/src/pebble.c
-LIB_FILES=node_modules/pebble-linked-list/src/c/linked-list.c
+LIB_FILES=node_modules/@smallstoneapps/linked-list/src/c/linked-list.c
 
 all: test
 

@@ -1,21 +1,24 @@
 #include <pebble.h>
-#include "pebble-bitmap-loader/bitmap-loader.h"
+#include "@smallstoneapps/bitmap-loader/bitmap-loader.h"
 
 static Window *window;
 static BitmapLayer* bitmap_layer;
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   bitmap_layer_set_bitmap(bitmap_layer, bitmaps_get_bitmap_in_group(RESOURCE_ID_BITMAP_1, 1));
+  layer_mark_dirty(bitmap_layer_get_layer(bitmap_layer));
   APP_LOG(APP_LOG_LEVEL_INFO, "%d", heap_bytes_free());
 }
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
   bitmap_layer_set_bitmap(bitmap_layer, bitmaps_get_bitmap_in_group(RESOURCE_ID_BITMAP_2, 1));
+  layer_mark_dirty(bitmap_layer_get_layer(bitmap_layer));
   APP_LOG(APP_LOG_LEVEL_INFO, "%d", heap_bytes_free());
 }
 
 static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
   bitmap_layer_set_bitmap(bitmap_layer, bitmaps_get_bitmap_in_group(RESOURCE_ID_BITMAP_3, 1));
+  layer_mark_dirty(bitmap_layer_get_layer(bitmap_layer));
   APP_LOG(APP_LOG_LEVEL_INFO, "%d", heap_bytes_free());
 }
 

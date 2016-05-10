@@ -1,5 +1,5 @@
 #include <pebble.h>
-#include "pebble-linked-list/linked-list.h"
+#include "@smallstoneapps/linked-list/linked-list.h"
 #include "bitmap-loader.h"
 
 
