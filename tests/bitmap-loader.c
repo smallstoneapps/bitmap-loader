@@ -2,7 +2,7 @@
 #include "./src/pebble-extra.h"
 #include "bitmap-loader.h"
 
-#define VERSION_LABEL "3.0.0"
+#define VERSION_LABEL "1.1.0"
 
 // Colour code definitions to make the output all pretty.
 #define KNRM  "\x1B[0m"
