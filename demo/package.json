@@ -13,7 +13,7 @@
     "watchapp": {
       "watchface": false
     },
-    "appKeys": {},
+    "sdkVersion": "3",
     "resources": {
       "media": [
         {
