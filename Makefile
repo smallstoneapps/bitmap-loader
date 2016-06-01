@@ -1,5 +1,5 @@
 PEBBLE_HEADERS=tests/include
-LIB_HEADERS=node_modules/@smallstoneapps/linked-list/dist/include -I node_modules/@smallstoneapps/linked-list/include
+LIB_HEADERS=node_modules/@smallstoneapps/linked-list/dist/include -I node_modules/@smallstoneapps/linked-list/ -I node_modules/
 
 CC=gcc
 ifeq ($(TRAVIS), true)
@@ -16,7 +16,10 @@ LIB_FILES=node_modules/@smallstoneapps/linked-list/src/c/linked-list.c
 
 all: test
 
-test:
+pre_test:
+	cp node_modules/@smallstoneapps/linked-list/include/linked-list.h node_modules/@smallstoneapps/linked-list/
+
+test: pre_test
 	@$(CC) $(CFLAGS) $(CINCLUDES) $(TEST_FILES) $(SRC_FILES) $(LIB_FILES) $(TEST_EXTRAS) -o tests/run
 	@tests/run || (echo 'Bitmap Loader tests failed' | terminal-notifier; exit 1)
 	@rm tests/run
