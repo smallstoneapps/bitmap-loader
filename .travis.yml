@@ -1,4 +1,5 @@
 language: c
+before_script: npm install -g npm@latest
 install:
   - ./tests/travis-install.sh
   - npm install
