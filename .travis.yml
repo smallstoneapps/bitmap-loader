@@ -1,4 +1,5 @@
 language: c
-install: ./tests/travis-install.sh
-after_install: npm i
+install:
+  - ./tests/travis-install.sh
+  - npm install
 script: make test
