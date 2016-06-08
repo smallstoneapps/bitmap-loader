@@ -17,7 +17,7 @@ LIB_FILES=node_modules/@smallstoneapps/linked-list/src/c/linked-list.c
 all: test
 
 pre_test:
-	cp node_modules/@smallstoneapps/linked-list/include/linked-list.h node_modules/@smallstoneapps/linked-list/
+	@ cp node_modules/@smallstoneapps/linked-list/include/linked-list.h node_modules/@smallstoneapps/linked-list/
 
 test: pre_test
 	@$(CC) $(CFLAGS) $(CINCLUDES) $(TEST_FILES) $(SRC_FILES) $(LIB_FILES) $(TEST_EXTRAS) -o tests/run

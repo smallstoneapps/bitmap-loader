@@ -1,4 +1,4 @@
-# Bitmap Loader v1.1.1 [![Build Status](http://img.shields.io/travis/smallstoneapps/bitmap-loader.svg?style=flat-square)](https://travis-ci.org/smallstoneapps/bitmap-loader/)&nbsp;![Version 1.1.1](http://img.shields.io/badge/version-1.1.1-orange.svg?style=flat-square)&nbsp;[![MIT License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat-square)](./LICENSE)
+# Bitmap Loader v1.1.1 [![Build Status](http://img.shields.io/travis/smallstoneapps/bitmap-loader.svg?style=flat-square)](https://travis-ci.org/smallstoneapps/bitmap-loader/)&nbsp;[![npm (scoped)](https://img.shields.io/npm/v/@smallstoneapps/bitmap-loader.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/@smallstoneapps/bitmap-loader)&nbsp;[![MIT License](http://img.shields.io/badge/license-MIT-lightgray.svg?style=flat-square)](./LICENSE)
 
 Pebble library to do lazy loading of bitmaps from resources
 
@@ -11,11 +11,23 @@ The function `bitmaps_get_bitmap` takes a *RESOURCE_ID* as an argument, and
 returns a pointer to a *GBitmap*. If this is the first time that the bitmap has
 been requested, it will load the image from resources.
 
+## Installation
+
+*You must be using Pebble SDK 3.12 or newer to use this library.*
+
+To install the package to your app, use the pebble tool:
+
+```
+pebble package install @smallstoneapps/bitmap-loader
+```
+
 ## Usage
 
 ```c
 // This is not a complete example, but should demonstrate the basic usage of
 // the Bitmap Loader library.
+
+#include <@smallstoneapps/bitmap-loader/bitmap-loader.h>
 
 static void init(void) {
   bitmaps_init();
