@@ -1,5 +1,5 @@
 {
-  "name": "pebble-bitmap-loader-demo",
+  "name": "@smallstoneapps/bitmap-loader-demo",
   "version": "1.0.0",
   "description": "Demo application for the Pebble Bitmap Loader",
   "main": "src/demo.c",
@@ -10,6 +10,7 @@
   "license": "MIT",
   "pebble": {
     "uuid": "1cf3657d-e6af-4005-a7c2-4e5a54c75f94",
+    "displayName": "Bitmap Loader Demo",
     "watchapp": {
       "watchface": false
     },
@@ -35,6 +36,6 @@
     }
   },
   "dependencies": {
-    "@smallstoneapps/bitmap-loader": "^1.1.0"
+    "@smallstoneapps/bitmap-loader": "../"
   }
 }
