@@ -1,6 +1,6 @@
 {
   "name": "@smallstoneapps/bitmap-loader",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Pebble library to do lazy loading of bitmaps from resources",
   "main": "src/c/bitmap-loader.c",
   "directories": {
